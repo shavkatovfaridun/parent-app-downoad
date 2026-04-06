@@ -1,18 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Download App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Edu Tizim</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f0f4ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .container {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      font-size: 26px;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+    }
+    p {
+      color: #666;
+      margin-bottom: 40px;
+      font-size: 15px;
+    }
+    .cards {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 36px 32px;
+      width: 200px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.14);
+    }
+    .card .emoji { font-size: 52px; margin-bottom: 16px; }
+    .card h2 { font-size: 18px; color: #1a1a2e; }
+    .card p { font-size: 13px; color: #999; margin: 6px 0 0; }
+  </style>
 </head>
 <body>
-<script>
-  const ua = navigator.userAgent;
-  if (/android/i.test(ua)) {
-    window.location = "https://play.google.com/store/apps/details?id=uz.unical.edusystem.parent";
-  } else if (/iPad|iPhone|iPod/.test(ua)) {
-    window.location = "https://apps.apple.com/uz/app/edu-tizim-parent/id6444078136";
-  } else {
-    document.write('Download on <a href="https://play.google.com/store/apps/details?id=uz.unical.edusystem.parent">Android</a> or <a href="https://apps.apple.com/uz/app/edu-tizim-parent/id6444078136">iOS</a>');
-  }
-</script>
+  <div class="container">
+    <h1>📲 Download the App</h1>
+    <p>Who are you?</p>
+    <div class="cards">
+      <div class="card" onclick="redirect('parent')">
+        <div class="emoji">👨‍👩‍👧</div>
+        <h2>Parent</h2>
+        <p>Track your child</p>
+      </div>
+      <div class="card" onclick="redirect('student')">
+        <div class="emoji">🎓</div>
+        <h2>Student</h2>
+        <p>Access your classes</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const links = {
+      parent: {
+        android: "https://play.google.com/store/apps/details?id=uz.unical.edusystem.parent",
+        ios: "https://apps.apple.com/uz/app/edu-tizim-parent/id6444078136"
+      },
+      student: {
+        android: "https://play.google.com/store/apps/details?id=uz.unical.edusystem.student",
+        ios: "https://apps.apple.com/uz/app/edu-tizim-student/id1612775698"
+      }
+    };
+
+    function redirect(type) {
+      const ua = navigator.userAgent;
+      if (/android/i.test(ua)) {
+        window.location = links[type].android;
+      } else if (/iPad|iPhone|iPod/.test(ua)) {
+        window.location = links[type].ios;
+      } else {
+        window.location = links[type].android; // default to Android on desktop
+      }
+    }
+  </script>
 </body>
 </html>
