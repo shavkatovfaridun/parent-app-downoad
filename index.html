@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Download App</title>
+</head>
+<body>
+<script>
+  const ua = navigator.userAgent;
+  if (/android/i.test(ua)) {
+    window.location = "https://play.google.com/store/apps/details?id=uz.unical.edusystem.parent";
+  } else if (/iPad|iPhone|iPod/.test(ua)) {
+    window.location = "https://apps.apple.com/uz/app/edu-tizim-parent/id6444078136";
+  } else {
+    document.write('Download on <a href="https://play.google.com/store/apps/details?id=uz.unical.edusystem.parent">Android</a> or <a href="https://apps.apple.com/uz/app/edu-tizim-parent/id6444078136">iOS</a>');
+  }
+</script>
+</body>
+</html>
